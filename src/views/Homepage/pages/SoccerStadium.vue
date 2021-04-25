@@ -63,7 +63,7 @@ body {
 }
 .space {
   margin-top: 50px;
-  margin-bottom: 150px;
+  margin-bottom: 50px;
 }
 
 .image-home-premeir {
