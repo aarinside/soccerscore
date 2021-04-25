@@ -68,6 +68,13 @@
                   >
                     {{ team.status }}
                   </td>
+                  <td
+                    width="300px"
+                    class="inrow"
+                    v-if="team.status_code == 17"
+                  >
+                    TBA
+                  </td>
                   <!-- end if statement -->
 
                   <td width="150px" class="inrow">
@@ -102,7 +109,7 @@ export default {
   mounted () {
     axios
       .get(
-        'http://127.0.0.1:5000/matches/352?date_from=2021-04-01&date_to=2021-05-01'
+        'http://127.0.0.1:5000/matches/352'
       )
       .then(response => {
         this.info = response
