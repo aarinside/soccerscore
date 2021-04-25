@@ -26,8 +26,9 @@ export default {
     },
     {
       path: 'laliga-schedule',
-      name: 'laliga-detail',
+      name: 'laliga-schedule',
       component: () => import('@/views/Homepage/pages/laliga-schedule.vue')
+
     },
     {
       path: 'laliga-standing',
@@ -35,9 +36,10 @@ export default {
       component: () => import('@/views/Homepage/pages/laliga-standing.vue')
     },
     {
-      path: 'laliga-detail',
+      path: 'laliga-detail/:MatchDetail',
       name: 'laliga-detail',
-      component: () => import('@/views/Homepage/pages/laliga-detail.vue')
+      component: () => import('@/views/Homepage/pages/laliga-detail.vue'),
+      props: true
     }
   ]
 }

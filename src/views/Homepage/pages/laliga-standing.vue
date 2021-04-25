@@ -1,69 +1,91 @@
 <template>
-  <div class="background">
-    <div class="container">
-      <div class="image">
-        <img
-          src="../../../assets/logo-stan.jpg"
-          alt=""
-          class="image-position"
-        />
-        <h1>LaLiga</h1>
+  <div>
+    <div class="background-titlebar">
+      <div class="container">
+        <div class="image">
+          <img
+            src="../../../assets/logo-stan.jpg"
+            alt=""
+            class="image-position"
+          />
+          <h1>Laliga </h1>
+        </div>
+      </div>
+      <div class="navbar">
+        <ul class="nav nav-pills nav-fill red">
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="laliga-standing">Standing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="laliga-schedule">Schedule</a>
+          </li>
+        </ul>
       </div>
     </div>
-    <div class="tab-bar">
-      <ul class="nav">
-        <li class="nav-item mx-sm-5">
-          <a class="nav-link active" href="homepage">home</a>
-        </li>
-        <li class="nav-item mx-sm-5">
-          <a class="nav-link " href="">standing</a>
-        </li>
-        <li class="nav-item mx-sm-5">
-          <a class="nav-link" href="premeir-schedule">schedule</a>
-        </li>
-      </ul>
-    </div>
-    <div class="table-data">
-      <table class="table table-striped">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">Pos</th>
-            <th scope="col">Club</th>
-            <th scope="col">Pl</th>
-            <th scope="col">GD</th>
-            <th scope="col">Pts</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Manchester City</td>
-            <td>32</td>
-            <td>+60</td>
-            <td>76</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Manchester United</td>
-            <td>31</td>
-            <td>+45</td>
-            <td>68</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Leicester</td>
-            <td>31</td>
-            <td>+30</td>
-            <td>58</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="container">
+      <div class="table-data borderless">
+        <table class="table ">
+          <thead class="">
+            <tr>
+              <th scope="col">Pos</th>
+              <th scope="col" colspan="2">Club</th>
+              <th scope="col">Played</th>
+              <th scope="col">Win</th>
+              <th scope="col">Drawn</th>
+              <th scope="col">Lose</th>
+              <th scope="col">G.Score</th>
+              <th scope="col">G.Against</th>
+              <th scope="col">G.Different</th>
+              <th scope="col">Pts</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="item in info.data.data" :key="item">
+              <th scope="row" class="pos-position">{{ item.position }}</th>
+              <td  class="team-image">
+                <img
+                  :src="item.team_logo"
+                  width="50px"
+                  height="50px
+                "
+                />
+              </td>
+              <td width="300px" class="team-name">{{ item.team_name }}</td>
+              <td width="180px" class="">{{ item.overall.games_played }}</td>
+              <td width="180px">{{ item.overall.won }}</td>
+              <td width="180px">{{ item.overall.draw }}</td>
+              <td width="180px">{{ item.overall.lost }}</td>
+              <td width="180px">{{ item.overall.goals_scored }}</td>
+              <td width="180px">{{ item.overall.goals_against }}</td>
+              <td width="180px">{{ item.overall.goals_diff }}</td>
+              <td width="100">{{ item.points }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+import axios from 'axios'
+export default {
+  data () {
+    return {
+      info: {}
+
+      // JSON.stringify(jsArray) converts the jsArray into a string which can be stored in sessionStorage
+    }
+  },
+  mounted () {
+    axios.get('http://127.0.0.1:5000/standings/1511').then(response => {
+      this.info = response
+    })
+  }
+}
 </script>
 
 <style scoped>
@@ -71,9 +93,57 @@ export default {}
   font-size: 20px;
   font-family: "B612", sans-serif;
 }
+
+.borderless th {
+  border: none;
+}
 a {
   font-size: 25px;
-  color: black;
+  color: white;
+}
+a:hover {
+  background-color: #5d4901;
+}
+
+td , th{
+  text-align: center;
+  vertical-align: middle;
+}
+
+.nav-link {
+  width: 300px;
+  margin: 0;
+}
+
+.nav-pills .active .nav-link:not(.active) {
+    background-color:  #5d4901;
+}
+.navbar {
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 0px;
+}
+.pos-position {
+  padding-top: 22px;
+}
+.team-image {
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  padding-top: 50%;
+  padding-bottom: 50%;
+}
+
+.team-name {
+  padding-top: 20px;
+  padding-left: 20px;
+  text-align: left;
+}
+.team-logo {
+  width: 30px;
+  height: 30px;
 }
 .tab-bar {
   display: flex;
@@ -88,10 +158,10 @@ a {
   width: 90vw;
   margin: 0 auto;
 }
-.background {
+.background-titlebar {
   width: 100%;
-  height: 120px;
-  background-color: #fac400;
+  height: fit-content;
+  background-color: #eebb01;
 }
 .image {
   display: flex;
@@ -100,7 +170,7 @@ a {
 }
 .image-position {
   background-color: white;
-  padding: 5px 5px;
+  padding: 10px 10px ;
   width: 100px;
   height: 100px;
   background: white;
