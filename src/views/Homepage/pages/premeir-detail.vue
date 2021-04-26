@@ -1,5 +1,7 @@
 <template>
   <div>
+
+    <!-- title img logo and Premeir league text-->
     <div class="background-titlebar">
       <div class="container">
         <div class="image">
@@ -11,6 +13,9 @@
           <h1>Premeir League</h1>
         </div>
       </div>
+      <!-- end title img logo and Premeir league text-->
+
+      <!-- nav menu bar -->
       <div class="navbar">
         <ul class="nav nav-pills nav-fill red">
           <li class="nav-item">
@@ -24,8 +29,14 @@
           </li>
         </ul>
       </div>
+      <!-- end of nav menu bar  -->
     </div>
+    <!-- end of title -->
+
+    <!-- body & table -->
     <div class="container">
+
+      <!-- match show -->
       <div class="table table-hover table-detail">
         <table
           v-for="team in info.data"
@@ -41,17 +52,10 @@
           </tr>
         </table>
       </div>
+      <!-- end match show -->
+
+      <!-- card show stat and detail -->
       <div class="description">
-        <!-- <table v-for="team in info.data" :key="team">
-          <tr>
-            Match Detail
-          </tr>
-          <tr>
-            <td>Match Start : {{ team.match_time_th }}</td>
-            <td>Stadium : {{ team.venue.name }}</td>
-            <td>Capacity : {{ team.venue.capacity }}</td>
-          </tr>
-        </table> -->
         <div class="card text-center border-dark mb-3">
           <div class="card-header">
             Match Detail
@@ -69,8 +73,11 @@
           <div class="card-footer text-muted"></div>
         </div>
       </div>
+      <!-- end card show stat and detail -->
+
     </div>
-    <!-- <div class="Des"></div> -->
+    <!-- end body & table -->
+
   </div>
 </template>
 
@@ -82,7 +89,9 @@ export default {
       info: {}
     }
   },
+  // get match_id by props
   props: ['MatchDetail'],
+  // get api function
   mounted () {
     axios
       .get('http://127.0.0.1:5000/match-detail/' + this.MatchDetail)

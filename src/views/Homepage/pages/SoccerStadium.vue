@@ -1,8 +1,13 @@
 <template>
+
+  <!-- title and background -->
   <div class="vuetify">
     <div class="plate">
       <p class="text">SOCCERSCORE</p>
     </div>
+    <!-- end title and background -->
+
+    <!-- img menu -->
     <div class="ct-center">
       <div class="row">
         <a href="premeir-standing" class="btn space">
@@ -18,6 +23,8 @@
         </a>
       </div>
     </div>
+    <!-- end img menu -->
+
   </div>
 </template>
 
@@ -38,6 +45,7 @@ body {
   background-color: #c4c4c4;
 }
 
+/* grahfic title */
 .text {
   position: absolute;
   top: 10%;
@@ -55,6 +63,8 @@ body {
     1px 22px 10px rgba(16, 16, 16, 0.2), 1px 25px 35px rgba(16, 16, 16, 0.2),
     1px 30px 60px rgba(16, 16, 16, 0.4);
 }
+
+/* set img menu to center */
 .ct-center {
   display: flex;
   justify-content: center;
@@ -88,6 +98,8 @@ body {
   padding: 20px 50px;
 
 }
+
+/* background position */
 .vuetify {
   background-image: url(../../../assets/background-homepage.jpg);
   background-size: cover;

@@ -1,6 +1,10 @@
 <template>
   <div>
+
+    <!-- title  -->
     <div class="background-titlebar">
+
+      <!-- title img logo and Premeir league text-->
       <div class="container">
         <div class="image">
           <img
@@ -11,6 +15,9 @@
           <h1>Premeir League</h1>
         </div>
       </div>
+      <!-- end title img logo and Premeir league text-->
+
+      <!-- nav menu bar -->
       <div class="navbar">
         <ul class="nav nav-pills nav-fill red">
           <li class="nav-item">
@@ -24,9 +31,18 @@
           </li>
         </ul>
       </div>
+      <!-- end of nav menu bar  -->
+
     </div>
+    <!-- end of title -->
+
+    <!-- body & table -->
     <div class="container">
+
+      <!-- table -->
       <div class="table-data borderless">
+
+        <!-- head table & colums -->
         <table class="table ">
           <thead class="">
             <tr>
@@ -42,6 +58,9 @@
               <th scope="col">Pts</th>
             </tr>
           </thead>
+          <!-- end head table & colums -->
+
+          <!-- body data standing  -->
           <tbody>
             <tr v-for="item in info.data.data" :key="item">
               <th scope="row" class="pos-position">{{ item.position }}</th>
@@ -64,9 +83,14 @@
               <td width="100">{{ item.points }}</td>
             </tr>
           </tbody>
+          <!-- end body data standing  -->
+
         </table>
       </div>
+      <!-- end table -->
+
     </div>
+    <!-- end body & table -->
   </div>
 </template>
 
@@ -80,6 +104,7 @@ export default {
       // JSON.stringify(jsArray) converts the jsArray into a string which can be stored in sessionStorage
     }
   },
+  // get api function
   mounted () {
     axios.get('http://127.0.0.1:5000/standings/352').then(response => {
       this.info = response
@@ -94,6 +119,7 @@ export default {
   font-family: "B612", sans-serif;
 }
 
+/* make table borderless */
 .borderless th {
   border: none;
 }
@@ -101,23 +127,30 @@ a {
   font-size: 25px;
   color: white;
 }
+
+/* hover of nav bar color */
 a:hover {
   background-color: #200835;
 }
 
+/* make text in row go center */
 td , th{
   text-align: center;
   vertical-align: middle;
 }
 
+/* size of nav menu */
 .nav-link {
   width: 300px;
   margin: 0;
 }
 
+/* color of active nav menu */
 .nav-pills .active .nav-link:not(.active) {
     background-color:  #200835;
 }
+
+/* set position of nav menu */
 .navbar {
   margin-top: 2px;
   display: flex;
@@ -125,9 +158,13 @@ td , th{
   justify-content: center;
   padding-bottom: 0px;
 }
+
+/* set 1st colume to center */
 .pos-position {
   padding-top: 22px;
 }
+
+/* set 2nd to center */
 .team-image {
   display: flex;
   align-items: left;

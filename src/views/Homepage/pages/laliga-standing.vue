@@ -1,6 +1,10 @@
 <template>
   <div>
+
+    <!-- title  -->
     <div class="background-titlebar">
+
+      <!-- title img logo and Premeir league text-->
       <div class="container">
         <div class="image">
           <img
@@ -11,6 +15,9 @@
           <h1>Laliga </h1>
         </div>
       </div>
+      <!-- end title img logo and Premeir league text-->
+
+      <!-- nav menu bar -->
       <div class="navbar">
         <ul class="nav nav-pills nav-fill red">
           <li class="nav-item">
@@ -24,9 +31,18 @@
           </li>
         </ul>
       </div>
+      <!-- end of nav menu bar  -->
+
     </div>
+    <!-- end of title -->
+
+    <!-- body & table -->
     <div class="container">
+
+      <!-- table -->
       <div class="table-data borderless">
+
+        <!-- head table & colums -->
         <table class="table ">
           <thead class="">
             <tr>
@@ -42,6 +58,9 @@
               <th scope="col">Pts</th>
             </tr>
           </thead>
+        <!-- end head table & colums -->
+
+        <!-- body data standing  -->
           <tbody>
             <tr v-for="item in info.data.data" :key="item">
               <th scope="row" class="pos-position">{{ item.position }}</th>
@@ -64,9 +83,14 @@
               <td width="100">{{ item.points }}</td>
             </tr>
           </tbody>
+          <!-- end body data standing  -->
+
         </table>
       </div>
+      <!-- end table -->
+
     </div>
+    <!-- end body & table -->
   </div>
 </template>
 
