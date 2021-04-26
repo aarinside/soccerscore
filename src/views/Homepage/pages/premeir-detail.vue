@@ -37,7 +37,7 @@
     <div class="container">
 
       <!-- match show -->
-      <div class="table table-hover table-detail">\
+      <div class="table table-hover table-detail">
         <!-- ทำการวน loop for เพื่อดึงขอมูลมาจาก object  -->
         <table
           v-for="team in info.data"
