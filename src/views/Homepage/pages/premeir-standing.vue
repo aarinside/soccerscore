@@ -7,6 +7,7 @@
       <!-- title img logo and Premeir league text-->
       <div class="container">
         <div class="image">
+          <!-- ทำการเพิ่ม logo ของ League โดยใช้ <img> -->
           <img
             src="../../../assets/badge-premeir.png"
             alt=""
@@ -19,10 +20,12 @@
 
       <!-- nav menu bar -->
       <div class="navbar">
+        <!-- ทำเป็นเมนูสำหรับคลิ๊กเลือก page โดยใช้ navbar -->
         <ul class="nav nav-pills nav-fill red">
           <li class="nav-item">
             <a class="nav-link " aria-current="page" href="/">Home</a>
           </li>
+          <!-- เมื่อเราอยู่ตำแหน่งหน้าไหนจะให้ปุ่ม active ที่เมนูนั้นๆ -->
           <li class="nav-item active">
             <a class="nav-link" href="premeir-standing">Standing</a>
           </li>
@@ -43,6 +46,7 @@
       <div class="table-data borderless">
 
         <!-- head table & colums -->
+        <!-- สร้างหัวตารางตามที่ได้ออกแบบไว้ -->
         <table class="table ">
           <thead class="">
             <tr>
@@ -62,7 +66,9 @@
 
           <!-- body data standing  -->
           <tbody>
+            <!-- วน loop เพื่อดึงค่าออกจากตัวแปร object ที่ได้ get ค่าจาก api มา -->
             <tr v-for="item in info.data.data" :key="item">
+              <!-- นำข้อมูลที่ได้มาแสดงโดยใช้ตัวแปรทีไ่ด้สร้างขึ้นมาเรียก object  -->
               <th scope="row" class="pos-position">{{ item.position }}</th>
               <td  class="team-image">
                 <img
@@ -105,8 +111,10 @@ export default {
     }
   },
   // get api function
+  // ใช้ axios เพื่อ get ค่าจาก api ของ backend
   mounted () {
     axios.get('https://soccerscoreapi.herokuapp.com/standings/352').then(response => {
+      // สร้างตัวแปร object มาเพื่อเก็บค่า api
       this.info = response
     })
   }

@@ -8,7 +8,7 @@
       <div class="container">
         <div class="image">
           <img
-            src="../../../assets/logo-stan.jpg"
+            src="../../../assets/badge-laliga.png"
             alt=""
             class="image-position"
           />
@@ -225,9 +225,10 @@ h2 {
 }
 .image-position {
   background-color: white;
-  padding: 10px 10px;
-  width: 100px;
-  height: 100px;
+  padding: 10px;
+  padding-left: 10px ;
+  width: 80px;
+  height: 80px;
   background: white;
   -moz-border-radius: 70px;
   -webkit-border-radius: 70px;

@@ -2,6 +2,7 @@
 
   <!-- title and background -->
   <div class="vuetify">
+    <!-- สร้าง Text กราฟฟิคโดยใช้ CSS -->
     <div class="plate">
       <p class="text">SOCCERSCORE</p>
     </div>
@@ -10,12 +11,16 @@
     <!-- img menu -->
     <div class="ct-center">
       <div class="row">
+        <!-- ทำการลิ้ง button โดยใช้ <a> -->
         <a href="premeir-standing" class="btn space">
+          <!-- เพิ่มรูปภาพโดยใช้ <img> -->
           <img src="../../../assets/Premeir.png" class="image-home-premeir " />
         </a>
       </div>
       <div class="row">
+        <!-- ทำการลิ้ง button โดยใช้ <a> -->
         <a href="laliga-standing" class="btn">
+          <!-- เพิ่มรูปภาพโดยใช้ <img> -->
           <img
             src="../../../assets/Laliga2-edit.png"
             class="image-home-laliga "

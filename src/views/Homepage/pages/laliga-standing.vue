@@ -7,8 +7,9 @@
       <!-- title img logo and Premeir league text-->
       <div class="container">
         <div class="image">
+          <!-- ทำการเพิ่ม logo ของ League โดยใช้ <img> -->
           <img
-            src="../../../assets/logo-stan.jpg"
+            src="../../../assets/badge-laliga.png"
             alt=""
             class="image-position"
           />
@@ -19,10 +20,12 @@
 
       <!-- nav menu bar -->
       <div class="navbar">
+        <!-- ทำเป็นเมนูสำหรับคลิ๊กเลือก page โดยใช้ navbar -->
         <ul class="nav nav-pills nav-fill red">
           <li class="nav-item">
             <a class="nav-link " aria-current="page" href="/">Home</a>
           </li>
+          <!-- เมื่อเราอยู่ตำแหน่งหน้าไหนจะให้ปุ่ม active ที่เมนูนั้นๆ -->
           <li class="nav-item active">
             <a class="nav-link" href="laliga-standing">Standing</a>
           </li>
@@ -43,6 +46,7 @@
       <div class="table-data borderless">
 
         <!-- head table & colums -->
+        <!-- สร้างหัวตารางตามที่ได้ออกแบบไว้ -->
         <table class="table ">
           <thead class="">
             <tr>
@@ -62,6 +66,7 @@
 
         <!-- body data standing  -->
           <tbody>
+            <!-- วน loop เพื่อดึงค่าออกจากตัวแปร object ที่ได้ get ค่าจาก api มา -->
             <tr v-for="item in info.data.data" :key="item">
               <th scope="row" class="pos-position">{{ item.position }}</th>
               <td  class="team-image">
@@ -194,9 +199,10 @@ td , th{
 }
 .image-position {
   background-color: white;
-  padding: 10px 10px ;
-  width: 100px;
-  height: 100px;
+  padding: 10px;
+  padding-left: 10px ;
+  width: 80px;
+  height: 80px;
   background: white;
   -moz-border-radius: 70px;
   -webkit-border-radius: 70px;
