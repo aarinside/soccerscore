@@ -105,7 +105,7 @@ export default {
     }
   },
   mounted () {
-    axios.get('http://127.0.0.1:5000/standings/1511').then(response => {
+    axios.get('https://soccerscoreapi.herokuapp.com/standings/1511').then(response => {
       this.info = response
     })
   }

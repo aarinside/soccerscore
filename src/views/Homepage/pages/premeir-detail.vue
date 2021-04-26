@@ -94,7 +94,7 @@ export default {
   // get api function
   mounted () {
     axios
-      .get('http://127.0.0.1:5000/match-detail/' + this.MatchDetail)
+      .get('https://soccerscoreapi.herokuapp.com/match-detail/' + this.MatchDetail)
       .then(response => {
         this.info = response
       })
