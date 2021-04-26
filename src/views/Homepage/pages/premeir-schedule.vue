@@ -27,7 +27,7 @@
             <a class="nav-link" href="premeir-standing">Standing</a>
           </li>
           <li class="menu nav-item active">
-            <a class="nav-link" href="premeir-schedule">Schedule</a>
+            <a class="nav-link" href="premeir-schedule">Matches</a>
           </li>
         </ul>
       </div>

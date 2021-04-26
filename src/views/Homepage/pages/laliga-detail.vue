@@ -25,7 +25,7 @@
             <a class="nav-link" href="/laliga-standing">Standing</a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="/laliga-schedule">Schedule</a>
+            <a class="nav-link" href="/laliga-schedule">Matches</a>
           </li>
         </ul>
       </div>
